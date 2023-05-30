@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CatListItem from './CatListItem';
 
-const CatList = ({ cats, setCats }) => {
+const CatList = ({ cats = [], onRemoveCat =(f) => f}) => {
     const [sortOption, setSortOption] = useState('');
     const [filterOption, setFilterOption] = useState('');
 
@@ -13,10 +13,10 @@ const CatList = ({ cats, setCats }) => {
         setFilterOption(event.target.value);
     };
 
-    const handleDeleteCat = (id) => {
-        const updatedCats = cats.filter((cat) => cat.id !== id);
-        setCats(updatedCats);
-    };
+    // const handleDeleteCat = (catId) => {
+    //     const updatedCats = cats.filter((cat) => cat.id !== catId);
+    //     setCatData(updatedCats);
+    // }
 
     const filteredCats = cats.filter((cat) => {
         if (filterOption === '') return true;
@@ -42,6 +42,8 @@ const CatList = ({ cats, setCats }) => {
         return 0;
     });
 
+    // if (!filteredCats.length || !sortedCats.length || !cats.length) return <div> No cat breeds listed. </div>
+
     return (
         <div>
             <div>
@@ -64,7 +66,7 @@ const CatList = ({ cats, setCats }) => {
                 />
             </div>
             {sortedCats.map((cat) => (
-                <CatListItem key={cat.id} cat={cat} onDeleteCat={handleDeleteCat} />
+                <CatListItem key={cat.id} {...cat} onRemove={onRemoveCat} />
             ))}
         </div>
     );

@@ -5,8 +5,17 @@ import CatList from './components/CatList';
 
 function App() {
     const [cats, setCats] = useState(CatData);
-  return (
-    <CatList cats={cats} setCats={setCats} />
+
+    const handleRemoveCat = (id) => {
+        const updatedCats = cats.filter((cat) => cat.id !== id);
+        setCats(updatedCats);
+    };
+
+    return (
+    // <CatList cats={cats} onRemoveCat={handleRemoveCat} />
+    <div>
+        <CatList cats={cats} onRemoveCat={handleRemoveCat} />
+    </div>
   );
 }
 

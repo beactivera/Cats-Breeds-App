@@ -1,7 +1,6 @@
 import React from 'react';
 
-const CatListItem = ({ cat, onDeleteCat }) => {
-    const { breed, country, origin, coat, pattern } = cat;
+const CatListItem = ({ id, breed, country, origin, coat, pattern, onRemove = (f) => f}) => {
 
     return (
         <div>
@@ -10,7 +9,7 @@ const CatListItem = ({ cat, onDeleteCat }) => {
             <p>Origin: {origin}</p>
             <p>Coat: {coat}</p>
             <p>Pattern: {pattern}</p>
-            <button onClick={() => onDeleteCat(cat.id)}>Usuń kota</button>
+            <button onClick={() => onRemove(id)}>Usuń kota</button>
         </div>
     );
 };
