@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import CatListItem from './CatListItem';
+import {CatContext} from "./CatProvider";
 
-const CatList = ({ cats = [], onRemoveCat =(f) => f}) => {
+const CatList = ({cats = [], onRemoveCat =(f) => f}) => {
+    // const { cats } = useContext(CatContext)
     const [sortOption, setSortOption] = useState('');
     const [filterOption, setFilterOption] = useState('');
 

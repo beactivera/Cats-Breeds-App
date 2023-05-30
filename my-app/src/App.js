@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import CatData from './data/cat-breeds.json';
 import CatList from './components/CatList';
+import CatProvider from "./components/CatProvider";
+import AddCat from "./components/AddCat";
 
 
 function App() {
@@ -13,9 +15,12 @@ function App() {
 
     return (
     // <CatList cats={cats} onRemoveCat={handleRemoveCat} />
-    <div>
-        <CatList cats={cats} onRemoveCat={handleRemoveCat} />
-    </div>
+    <CatProvider>
+        <AddCat />
+        <div>
+            <CatList cats={cats} onRemoveCat={handleRemoveCat} />
+        </div>
+    </CatProvider>
   );
 }
 
