@@ -2,7 +2,7 @@ import React, {useContext, useState, useMemo} from "react";
 import CatListItem from "./CatListItem";
 import {CatContext} from "./CatProvider";
 
-const CatList = () => {
+const CatPage = () => {
     const {cats, removeCat} = useContext(CatContext);
     console.log(cats);
     const [sortOption, setSortOption] = useState("");
@@ -75,4 +75,4 @@ const CatList = () => {
     );
 };
 
-export default CatList;
+export default CatPage;
