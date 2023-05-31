@@ -16,11 +16,6 @@ const CatList = () => {
         setFilterOption(event.target.value);
     };
 
-    // const handleDeleteCat = (catId) => {
-    //     const updatedCats = cats.filter((cat) => cat.id !== catId);
-    //     setCatData(updatedCats);
-    // }
-
     const filteredCats = useMemo(
         () =>
             cats.filter((cat) => {

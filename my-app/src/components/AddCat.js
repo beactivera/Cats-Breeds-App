@@ -3,7 +3,6 @@ import { CatContext } from './CatProvider';
 
 function AddCat() {
     const { addCat } = useContext(CatContext);
-    // breed, country, origin, coat, pattern
     const [breed, setBreed] = useState('');
     const [country, setCountry] = useState('');
     const [origin, setOrigin] = useState('');
